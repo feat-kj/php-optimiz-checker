@@ -5,7 +5,6 @@
   var_dump('aaaa');
 
   $que = 'question';//""
-  if ($que == 'question')
-  {
+  if ($que == 'question'){
       var_dump('ok');
   }
