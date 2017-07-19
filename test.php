@@ -11,7 +11,8 @@ class abc {
   public function Execute($a,$b,$c){
     if($b){
       // aaaa
-    } elseab {
+    } else {
+      var_dump('aaa');
     }
     $a=10;
     return;
