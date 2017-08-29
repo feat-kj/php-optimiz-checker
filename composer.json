@@ -1,7 +1,7 @@
 {
     "require-dev": {
         "phpmd/phpmd" : "*",
-        "phpmd/phpmd" : "*",
-        "squizlabs/php_codesniffer" : "*"
+        "squizlabs/php_codesniffer" : "*",
+        "overtrue/phplint" : "*"
     }
 }
