@@ -1,6 +1,6 @@
 <?php
 use Foo\Bar;
-class abc {
+class abc{
   public $value1='';
 
   /**
@@ -14,7 +14,7 @@ class abc {
       // aaaa
 
     } else {
-      var_dump('aaa'.$ccc);
+      var_dump('aaa'.$ccc)
     }
     $acc=10;
     return;
