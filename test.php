@@ -8,15 +8,15 @@ class abc {
    * @param integer $b
    * @param integer $c
    */
-  public function Execute($a,$b,$c){
-    if($b){
-      
+  public function Execute($acc,$bcc,$ccc){
+    if($bcc){
+
       // aaaa
 
     } else {
-      var_dump('aaa');
+      var_dump('aaa'.$ccc);
     }
-    $a=10;
+    $acc=10;
     return;
   }
 }
