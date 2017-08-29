@@ -9,7 +9,7 @@ class abc {
    * @param integer $c
    */
   public function Execute($acc,$bcc,$ccc){
-    if($bcc){
+    if($bc){
       // aaaa
       $bcc = 2;
     } else {
