@@ -1,0 +1,59 @@
+#!/bin/bash
+export PATH=$PATH:vendor/bin/
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+    against=HEAD
+else
+    # Initial commit: diff against an empty tree object
+    against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+# Redirect output to stderr.
+exec 1>&2
+
+IS_ERROR=0
+# コミットされるファイルのうち、.phpで終わるもの
+for FILE in `git diff-index --name-status $against -- | grep -E '^[AUM].*\.php$'| cut -c3-`; do
+    FILE_ERROR=0
+    # line = "\e[31m## ======== $FILE ============"
+    # line=$line"\e[38;5;"$num"m"$num"\t\e[0m"
+    printf "\e[36m##  $FILE \e[m \n"
+    # printf　$line
+    # シンタックスのチェック
+    echo "- syntax check "
+    # printf "\e[31m"
+    sytax = `php -l $FILE`
+    printf $sytax
+    if php -l $FILE; then
+        printf $?
+        # printf "\e[m"
+        # デバックコードチェック
+        echo "- debug code check "
+        result=$(grep -EHn 'echo|var_dump' $FILE)
+        # マッチした行があれば0
+        if [ $? -eq 0 ]; then
+          printf "\e[36m   - Can't commit the Debugging Code : "
+          echo "$result \e[m \n"
+          IS_ERROR=1
+          FILE_ERROR=1
+        else
+          printf "\e[32m  - OK \e[m \n"
+        fi
+
+        # PHPMDで未使用変数などのチェック
+        echo "- proper code check "
+        printf "\e[31m"
+        if ! phpmd $FILE text unusedcode,codesize,naming,design; then
+            printf "\e[m"
+            IS_ERROR=1
+            FILE_ERROR=1
+        else
+          printf "\e[m"
+          printf "\e[32m  - OK \e[m \n"
+        fi
+    else
+        # printf "\e[m"
+        IS_ERROR=1
+    fi
+done
+exit $IS_ERROR
