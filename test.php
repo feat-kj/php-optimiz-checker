@@ -8,9 +8,9 @@ class abc {
    * @param integer $b
    * @param integer $c
    */
-  public function Execute($accc,$bcc,$ccc){
+  public function Execute($acc,$bcc,$ccc){
     if($bcc){
-
+echo 'echo echo';
       // aaaa
 
     } else {
