@@ -10,11 +10,10 @@ class abc {
    */
   public function Execute($acc,$bcc,$ccc){
     if($bcc){
-echo 'echo echo';
       // aaaa
-
+      $bcc = 2;
     } else {
-      var_dump('aaa'.$ccc);
+      $acc = 3;
     }
     $acc=10;
     return;
