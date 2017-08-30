@@ -1,6 +1,6 @@
 <?php
 use Foo\Bar;
-class abc {
+class Test {
   public $value1='';
 
   /**
@@ -8,13 +8,14 @@ class abc {
    * @param integer $b
    * @param integer $c
    */
-  public function Execute($a,$b,$c){
-    if($b){
+  public function Execute($acc,$bccb,$ccc){
+    if($ccc){
       // aaaa
+      $bcc = 2;
     } else {
+      $acc = 3;
     }
-    $a=10;
+    $acc=10;
     return;
   }
 }
-?>
