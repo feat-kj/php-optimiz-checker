@@ -8,7 +8,7 @@ class Test {
    * @param integer $b
    * @param integer $c
    */
-  public function Execute($acc,$bcc,$ccc){
+  public function Execute($acc,$bccb,$ccc){
     if($ccc){
       // aaaa
       $bcc = 2;

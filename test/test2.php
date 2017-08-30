@@ -23,7 +23,7 @@ class Test2 {
     if($abc == 1){
       if($abc == 1){
         if($abc == 1){
-          if($abc == 1){
+          if($abc == 2){
             if($abc == 1){
               return $abc;
             }
@@ -32,5 +32,5 @@ class Test2 {
       }
     }
     return "";
-  }  
+  }
 }

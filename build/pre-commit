@@ -22,7 +22,6 @@ for FILE in `git diff-index --name-status $against -- | grep -E '^[AUM].*\.php$'
     # シンタックスのチェック
     echo "- syntax check "
     if php -l $FILE; then
-        printf $?
         # printf "\e[m"
         # デバックコードチェック
         echo "- debug code check "
